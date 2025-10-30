@@ -1,0 +1,15 @@
+[Unit]
+Description=Glacier ZFS Backup Service
+Requires=zfs.target
+After=zfs.target
+
+[Service]
+Type=simple
+# Replace /path/to/glacier-backup-script with the actual path to your project root directory
+WorkingDirectory=/path/to/glacier-backup-script
+ExecStart=/path/to/glacier-backup-script/backup.py --config /path/to/glacier-backup-script/config.ini
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

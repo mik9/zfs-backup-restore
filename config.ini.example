@@ -1,0 +1,16 @@
+[zfs]
+dataset = data/photos
+snapshot_prefix = glacier-backup-
+snapshot_retention = 7
+
+[rclone]
+remote = my-s3-remote
+bucket_name = my-zfs-backups
+config_path = /home/{user}/.config/rclone/rclone.conf
+
+[compression]
+# Available compressors:
+#   gzip: Standard single-threaded gzip. Creates .gz files.
+#   pigz: Multi-threaded gzip. Creates .gz files. (Recommended for speed)
+#   zstd: Multi-threaded Zstandard. Creates .zst files. (Often faster and better compression)
+compressor = zstd
